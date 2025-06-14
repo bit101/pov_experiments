@@ -76,14 +76,6 @@ union {
   rotate 360 * clock
 }
 
-// object {
-//   Fractal
-//   texture {
-//     T_Stone10
-//   }
-//   rotate clock*360
-// }
-
 sky_sphere {
   pigment {
     gradient y
