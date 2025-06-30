@@ -1,4 +1,19 @@
 #declare R1 = seed(1234);
+#macro RandomBool(RNG)
+  #local B = false;
+  #if (rand(RNG) < 0.5)
+    #local B = true;
+  #end
+  B
+#end
+
+#macro RandomWeightedBool(W, RNG)
+  #local B = false;
+  #if (rand(RNG) < W)
+    #local B = true;
+  #end
+  B
+#end
 
 /////////////////////////////////////
 // Zero walls and desks

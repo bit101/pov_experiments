@@ -5,11 +5,12 @@ CYCLIC := true
 WIDTH := 800
 HEIGHT := 800
 VERBOSE := false
-CONSOLE := false
+CONSOLE := true
 ANTIALIAS := true
 QUALITY := 9
 THREADS := 6
 FPS := 30
+LIB_PATH := /home/keith/Code/blpov
 
 # image or video
 default: video
@@ -67,6 +68,7 @@ out/frames: main.pov
 		All_Console=$(CONSOLE) \
 		Work_Threads=$(THREADS) \
 		Quality=$(QUALITY) \
+		Library_Path=$(LIB_PATH) \
 		Output_File_Name=./out/frames/frame_.png
 
 ################
@@ -92,6 +94,7 @@ subset:
 		Quality=$(QUALITY) \
 		Subset_Start_Frame=1 \
 		Subset_End_Frame=10 \
+		Library_Path=$(LIB_PATH) \
 		Output_File_Name=./out/frames/frame_.png
 
 ffmpeg:

@@ -2,7 +2,6 @@
 #include "stdinc.inc"
 #include "textures.inc"
 #include "stones.inc"
-#include "../lib/objects.inc"
 
 global_settings { assumed_gamma 1 }
 

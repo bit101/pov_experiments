@@ -2,8 +2,6 @@
 #include "stdinc.inc"
 #include "textures.inc"
 #include "stones.inc"
-#include "../lib/objects.inc"
-#include "../lib/funcs.inc"
 #include "./objects.inc"
 
 global_settings { 

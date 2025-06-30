@@ -2,8 +2,7 @@
 #include "stdinc.inc"
 #include "textures.inc"
 #include "stones.inc"
-#include "../lib/objects.inc"
-#include "../lib/funcs.inc"
+#include "blpov.inc"
 
 global_settings {
   assumed_gamma 1
@@ -47,7 +46,7 @@ blob {
     <X, Y, Z> Size * 0.65
     strength Size*3
     // pigment { rgb <rand(R1) * 0.2 + 0.8, rand(R1) *0.1 + 0.6, rand(R1) * 0.2 + 0.4> }
-    pigment { RandomRGB(R1)}
+    pigment { RandomRGB()}
     finish { 
       phong rand(R1) * 0.4
     }

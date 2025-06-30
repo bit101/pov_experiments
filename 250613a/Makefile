@@ -35,7 +35,7 @@ out/out.png: main.pov generated.inc
 video: out/out.mp4
 	@mpv -loop ./out/out.mp4 2&> /dev/null
 
-out/out.mp4: out/frames/*.png
+out/out.mp4: out/frames
 	@echo "generating video..."
 	@ffmpeg \
 		-y \

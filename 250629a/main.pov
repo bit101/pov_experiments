@@ -24,7 +24,6 @@ camera {
   location <2, 0, -4>
   look_at  <0, 0, 0>
 }
-#declare R1 = seed(2343);
 
 object {
   SphereCage(12, 12, 1.8, 0.1)
