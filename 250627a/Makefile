@@ -1,27 +1,24 @@
-FRAMES := 60
-# ZEROS = number of digits in FRAMES
-ZEROS := 2
+FRAMES := 360
+# ZEROS  :=  number of digits in FRAMES
+ZEROS := 3
 CYCLIC := true
-WIDTH := 1920
-HEIGHT := 1080
-# WIDTH := 960
-# HEIGHT := 540
+WIDTH := 1280
+HEIGHT := 720
 VERBOSE := false
 CONSOLE := false
 ANTIALIAS := true
-# QUALITY 0-11. 9 is default. 
 QUALITY := 9
 THREADS := 6
 FPS := 30
 
 # image or video
-default: image
+default: video
 
 ################
 # Single frame
 ################
 image: out/out.png
-	@eog -f ./out/out.png 2&> /dev/null
+	@eog ./out/out.png 2&> /dev/null
 
 out/out.png: main.pov
 	@echo "building image..."
@@ -79,7 +76,7 @@ clean:
 	@echo "cleaning..."
 	@rm -rf out
 
-render:
+subset:
 	@echo "generating frames..."
 	@mkdir -p out/frames
 	@povray \
@@ -93,8 +90,8 @@ render:
 		All_Console=$(CONSOLE) \
 		Work_Threads=$(THREADS) \
 		Quality=$(QUALITY) \
-		Subset_Start_Frame=601 \
-		Subset_End_Frame=720 \
+		Subset_Start_Frame=31 \
+		Subset_End_Frame=60 \
 		Output_File_Name=./out/frames/frame_.png
 
 ffmpeg:
@@ -108,10 +105,13 @@ ffmpeg:
 		-profile:v high \
 		-crf 20 \
 		-pix_fmt yuv420p \
-		./out/out.mp4
+		./out_01.mp4
 
 cat:
-	ffmpeg -f concat -safe 0 -i cat.txt -c copy final.mp4
+	# update with actual file names
+	@echo "file ./out_01.mp4" > cat.txt
+	@echo "file ./out_02.mp4" >> cat.txt
+	@echo "file ./out_03.mp4" >> cat.txt
+	@ffmpeg -y -f concat -safe 0 -i cat.txt -c copy final.mp4
+	@mpv --fs --loop final.mp4
 
-reverse:
-	ffmpeg -i s2_1920.mp4 -vf reverse s4_1920.mp4

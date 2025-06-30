@@ -8,17 +8,17 @@
   rgb <rand(RNG), rand(RNG), rand(RNG)>
 #end
 
-#macro RandomBool(RGB)
+#macro RandomBool(RNG)
   #local B = false;
-  #if (rand(RGB) < 0.5)
+  #if (rand(RNG) < 0.5)
     #local B = true;
   #end
   B
 #end
 
-#macro RandomWeightedBool(W, RGB)
+#macro RandomWeightedBool(W, RNG)
   #local B = false;
-  #if (rand(RGB) < W)
+  #if (rand(RNG) < W)
     #local B = true;
   #end
   B
